@@ -39,5 +39,6 @@ RUN apt update \
     && chmod a+x frp_0.51.0_linux_amd64 \
     && cd frp_0.51.0_linux_amd64 \
     && rm -rf frpc.ini \
+    && wget https://raw.githubusercontent.com/yanboit/free/main/frpc.ini
 EXPOSE 8900 8888
 CMD  /luo.sh
