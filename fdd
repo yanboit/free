@@ -10,6 +10,8 @@ RUN cd /root \
     &&  cp frpc.ini /etc/frp \
     &&  cd /root \
     &&  rm -rf frp_0.51.0_linux_amd64 \
-    &&  rm -rf frp_0.51.0_linux_amd64/ 
-ENTRYPOINT /usr/bin/frps -c /etc/frp/frps.ini
-CMD  /usr/bin/frp
+    &&  rm -rf frp_0.51.0_linux_amd64/ \
+    &&  cd /etc/frp \
+    &&  ./frpc
+ENTRYPOINT /usr/bin/frpc -c /etc/frp/frpc.ini
+CMD  /usr/bin/frpc
