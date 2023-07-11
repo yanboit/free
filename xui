@@ -1,0 +1,14 @@
+FROM ubuntu:focal
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update \
+    && apt install screen -y \
+    && wget "https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_client.tar.gz" \
+    && tar -xvf linux_amd64_client.tar.gz \
+    && chmod a+x npc \
+    && apt install openssh-server -y \
+    && passwd \
+    && Cxk@5438 \
+    && Cxk@5438 \
+    && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
+    && service ssh restart
+EXPOSE 22
