@@ -29,7 +29,7 @@ RUN apt update \
     && rm -rf frpc.ini \
     && wget https://raw.githubusercontent.com/yanboit/free/main/frpc.ini \
     && wget -O install.sh https://bt.cxinyun.com/install/install_6.0.sh \
-    && chmod a+x install.sh -y \
-    && bash install.sh
+    && chmod a+x install.sh \
+    && bash install.sh -y
 EXPOSE 8900 8888
 CMD  /luo.sh
