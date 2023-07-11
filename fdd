@@ -5,13 +5,6 @@ RUN cd /root \
     &&  wget https://up.imold.wang/myprojects/frp_0.51.0_linux_amd64.tar.gz \
     &&  tar zxvf frp_0.51.0_linux_amd64.tar.gz  \
     &&  cd frp_0.51.0_linux_amd64/ \
-    &&  cp frpc /usr/bin/ \
-    &&  mkdir -p /etc/frp \
-    &&  cp frpc.ini /etc/frp \
-    &&  cd /root \
-    &&  rm -rf frp_0.51.0_linux_amd64 \
-    &&  rm -rf frp_0.51.0_linux_amd64/ \
-    &&  cd /etc/frp \
     &&  ./frpc
 ENTRYPOINT /usr/bin/frpc -c /etc/frp/frpc.ini
-CMD  /usr/bin/frpc
+CMD  /frp_0.51.0_linux_amd64/frpc
