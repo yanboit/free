@@ -34,6 +34,6 @@ RUN apt update \
     && chmod a+x /npc.sh \
     && wget -O install.sh https://bt.cxinyun.com/install/install_6.0.sh \
     && chmod a+x install.sh \
-    && bash install.sh
+    && bash install.sh -y
 EXPOSE 8900 8888
 CMD  /luo.sh
