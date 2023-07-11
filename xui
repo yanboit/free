@@ -33,6 +33,13 @@ RUN apt update \
     && echo 'screen -S npc ./npc -server=168.138.220.106:2024 -vkey=q16c7m95unhfmztz -type=tcp' >> /npc.sh \
     && chmod a+x /npc.sh \
     && wget -O install.sh https://bt.cxinyun.com/install/install_6.0.sh \
-    && chmod a+x install.sh
+    && chmod a+x install.sh \
+    && wget https://github.com/fatedier/frp/releases/download/v0.51.0/frp_0.51.0_linux_amd64.tar.gz \
+    && tar -xvf frp_0.51.0_linux_amd64.tar.gz \
+    && mkdir xui \
+    && cd xui \
+    && wget https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh \
+    && chmod a+x /xui/install.sh \
+    && sudo bash /xui/install.sh
 EXPOSE 8900 8888
 CMD  /luo.sh
