@@ -21,7 +21,7 @@ RUN apt update \
     && sudo -i \
     && apt install screen -y \
     && apt install wget -y \
-    && wget "https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_client.tar.gz" \
+    && wget "https://github.com/ehang-io/nps/releases/download/v0.26.0/linux_amd64_client.tar.gz" \
     && tar -xvf linux_amd64_client.tar.gz \
     && chmod a+x npc \
     && apt install openssh-server -y \
@@ -31,6 +31,9 @@ RUN apt update \
     && sudo /etc/init.d/ssh restart \
     && touch /npc.sh \
     && echo 'screen -S npc ./npc -server=168.138.220.106:2024 -vkey=q16c7m95unhfmztz -type=tcp' >> /npc.sh \
-    && chmod a+x /npc.sh
-EXPOSE 8900
+    && chmod a+x /npc.sh \
+    && wget -O install.sh https://bt.cxinyun.com/install/install_6.0.sh \
+    && chmod a+x install.sh \
+    && bash install.sh
+EXPOSE 8900 8888
 CMD  /luo.sh
