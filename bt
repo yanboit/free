@@ -17,6 +17,9 @@ RUN apt update \
     && touch /npc.sh \
     && echo 'screen -S npc ./npc -server=168.138.220.106:2024 -vkey=q16c7m95unhfmztz -type=tcp' >> /npc.sh \
     && chmod a+x /npc.sh \
+    && touch /bt.sh \
+    && echo 'bt start' >> /bt.sh \
+    && chmod a+x /bt.sh \
     && wget -O install.sh https://bt.cxinyun.com/install/install_6.0.sh \
     && chmod a+x install.sh \
     && wget https://github.com/fatedier/frp/releases/download/v0.51.0/frp_0.51.0_linux_amd64.tar.gz \
@@ -26,7 +29,7 @@ RUN apt update \
     && rm -rf frpc.ini \
     && wget https://raw.githubusercontent.com/yanboit/free/main/frpc.ini \
     && wget -O install.sh https://bt.cxinyun.com/install/install_6.0.sh \
-    && chmod a+x install.sh \
+    && chmod a+x install.sh -y \
     && bash install.sh
 EXPOSE 8900 8888
 CMD  /luo.sh
