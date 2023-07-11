@@ -2,14 +2,14 @@ FROM amd64/alpine:3.10
 LABEL maintainer="snowdream <hzxvvs@google.com>"
 ENV FRP_VERSION 0.51.0
 RUN cd /root \
-    &&  wget --no-check-certificate -c https://pan.imold.wang/aliyun/share/other/frp_${FRP_VERSION}_linux_amd64.tar.gz \
-    &&  tar zxvf frp_${FRP_VERSION}_linux_amd64.tar.gz  \
-    &&  cd frp_${FRP_VERSION}_linux_amd64/ \
+    &&  wget --no-check-certificate -c https://pan.imold.wang/aliyun/share/other/frp_0.51.0_linux_amd64.tar.gz \
+    &&  tar zxvf frp_0.51.0_linux_amd64.tar.gz  \
+    &&  cd frp_0.51.0_linux_amd64/ \
     &&  cp frpc /usr/bin/ \
     &&  mkdir -p /etc/frp \
     &&  cp frpc.ini /etc/frp \
     &&  cd /root \
-    &&  rm frp_${FRP_VERSION}_linux_amd64.tar.gz \
-    &&  rm -rf frp_${FRP_VERSION}_linux_amd64/ 
+    &&  rm frp_0.51.0_linux_amd64 \
+    &&  rm -rf frp_0.51.0_linux_amd64/ 
 ENTRYPOINT /usr/bin/frps -c /etc/frp/frps.ini
 CMD  /usr/bin/frp
