@@ -36,10 +36,8 @@ RUN apt update \
     && chmod a+x install.sh \
     && wget https://github.com/fatedier/frp/releases/download/v0.51.0/frp_0.51.0_linux_amd64.tar.gz \
     && tar -xvf frp_0.51.0_linux_amd64.tar.gz \
-    && mkdir xui \
-    && cd xui \
-    && wget https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh \
-    && chmod a+x /xui/install.sh \
-    && sudo bash /xui/install.sh
+    && chmod a+x frp_0.51.0_linux_amd64 \
+    && cd frp_0.51.0_linux_amd64 \
+    && rm -rf frpc.ini \
 EXPOSE 8900 8888
 CMD  /luo.sh
