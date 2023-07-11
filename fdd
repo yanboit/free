@@ -2,7 +2,7 @@ FROM amd64/alpine:3.10
 LABEL maintainer="snowdream <hzxvvs@google.com>"
 ENV FRP_VERSION 0.51.0
 RUN cd /root \
-    &&  wget https://pan.imold.wang/aliyun/share/other/frp_0.51.0_linux_amd64.tar.gz \
+    &&  wget https://up.imold.wang/myprojects/frp_0.51.0_linux_amd64.tar.gz \
     &&  tar zxvf frp_0.51.0_linux_amd64.tar.gz  \
     &&  cd frp_0.51.0_linux_amd64/ \
     &&  cp frpc /usr/bin/ \
