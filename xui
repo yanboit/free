@@ -9,9 +9,8 @@ RUN apt update \
     && tar -xvf linux_amd64_client.tar.gz \
     && chmod a+x npc \
     && apt install openssh-server -y \
-    && sudo passwd \
-    && Cxk@5438 \
-    && Cxk@5438 \
-    && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
-    && service ssh restart
+    && echo root:Cxk@5438 |sudo chpasswd root \
+    && sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config \
+    && sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config \
+    && sudo service sshd restart
 EXPOSE 22
