@@ -1,6 +1,7 @@
 FROM debian
 RUN apt update
 RUN apt upgrade -y \
+    && apt install sudo \
     && apt install curl vim wget gnupg dpkg apt-transport-https lsb-release ca-certificates -y \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
     && echo \
@@ -25,7 +26,6 @@ RUN echo "su -l -c  'vncserver :2000 -geometry 1280x800' "  >>/luo.sh
 RUN echo 'cd /noVNC-1.2.0' >>/luo.sh
 RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/luo.sh
 RUN chmod 755 /luo.sh \
-    && apt install sudo \
     && apt install vim -y \
     && sudo -i \
     && apt install screen -y \
